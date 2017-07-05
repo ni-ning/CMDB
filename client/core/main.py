@@ -69,10 +69,11 @@ class ArgvHandler(object):
 
         response = self.__submit_data(post_url, data, method='post')
 
+
         if "asset_id" in response:
             self.__update_asset_id(response["asset_id"])
 
-        # log
+        # logs
 
     def load_asset_id(self):
         asset_id_file = settings.Params['asset_id']
@@ -119,6 +120,6 @@ class ArgvHandler(object):
 
     def __update_asset_id(self, new_asset_id):
         asset_id_file = settings.Params['asset_id']
-        f = open(asset_id_file, "wb")
+        f = open(asset_id_file, "w")
         f.write(str(new_asset_id))
         f.close()

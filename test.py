@@ -5,13 +5,21 @@
 
 
 if __name__ == '__main__':
-    if {}:
-        print('***')
+
+    for i in range(1, 1):
+        print(i)
+        break
     else:
-        print('####')
+        print('end')
 
+    temp_list = [0, 1, 2, 3]
 
-    dic = {
-        'error':[]
-    }
-    print()
+    print([str(i) for i in temp_list])
+
+    if 0 is None:
+        print('111')
+    else:
+        print('222')
+
+    if type(1) is int:
+        print('OK')

@@ -8,11 +8,18 @@ from asset import core
 def asset_with_no_asset_id(request):
 
     if request.method == 'GET':
-        return HttpResponse("get")
-
+        return HttpResponse("get is OK.")
     elif request.method == "POST":
-
         asset_obj = core.Asset(request)
         res = asset_obj.get_asset_id_by_sn()
-
         return HttpResponse(json.dumps(res))
+
+
+@csrf_exempt
+def asset_report(request):
+    if request.method == "POST":
+        asset_obj = core.Asset(request)
+        if asset_obj.data_is_valid():
+            asset_obj.data_inject()
+
+        return HttpResponse(json.dumps(asset_obj.response))

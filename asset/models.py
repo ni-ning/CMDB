@@ -179,6 +179,7 @@ class Disk(models.Model):
     asset = models.ForeignKey('Asset')
     sn = models.CharField(u'SN号', max_length=128, blank=True, null=True)
     slot = models.CharField(u'插槽位', max_length=64)
+    # slot = models.IntegerField(u'插槽位')
     model = models.CharField(u'磁盘型号', max_length=128, blank=True, null=True)
     capacity = models.FloatField(u'磁盘容量GB')
     disk_iface_choices = (
@@ -192,7 +193,7 @@ class Disk(models.Model):
     create_date = models.DateTimeField(blank=True, auto_now_add=True)
     update_date = models.DateTimeField(blank=True, null=True)
 
-    auto_create_fields = ['sn', 'slot', 'manufactory', 'model', 'capacity', 'iface_type']
+    auto_create_fields = ['sn', 'slot', 'model', 'capacity', 'iface_type']
 
     class Meta:
         unique_together = ("asset", "slot")
