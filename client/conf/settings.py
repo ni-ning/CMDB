@@ -24,6 +24,7 @@ Params = {
 
 }
 
+
 if __name__ == '__main__':
     print(Params.get('asset_id'))
     print(Params.get('log_file'))

@@ -99,7 +99,8 @@ class ArgvHandler(object):
                     settings.Params['urls'][url])
 
             print('Connecting [%s], it may take a minute.' % full_url)
-
+            
+            full_url = self.__attach_token(full_url)
             if method == 'get':
                 pass
             elif method == 'post':
@@ -111,10 +112,6 @@ class ArgvHandler(object):
                 except Exception as e:
                     sys.exit("\033[31;1m%s\033[0m" % e)
 
-
-
-
-
         else:
             raise KeyError
 
@@ -123,3 +120,16 @@ class ArgvHandler(object):
         f = open(asset_id_file, "w")
         f.write(str(new_asset_id))
         f.close()
+
+    def __attach_token(self, url_str):
+        user = settings.Params['auth']['user']
+        token_id = settings.Params['auth']['token']
+
+        md5_token, timestamp = api_token.get_token(user, token_id)
+        url_arg_str = "user=%s&timestamp=%s&token=%s" % (user, timestamp, md5_token)
+
+        if "?" in url_str:
+            new_url = url_str + "&" + url_arg_str
+        else:
+            new_url = url_str + "?" + url_arg_str
+        return new_url

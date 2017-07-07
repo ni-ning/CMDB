@@ -1,0 +1,173 @@
+body{
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.pg-header{
+    background-color: steelblue;
+    height: 48px;
+    line-height: 48px;
+    min-width: 800px;
+}
+
+.pg-header .logo{
+    width: 200px;
+    height: 48px;
+    background-color: steelblue;
+    color: white;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.pg-header .avatar{
+    position: relative;
+}
+.pg-header .avatar img{
+    width: 40px;
+    height: 40px;
+    padding: 4px 4px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.pg-header .avatar .user-menu{
+    position: absolute;
+    width: 180px;
+    border: 1px solid lightgrey;
+    right: 0;
+    top: 48px;
+    display: none;
+    padding-left: 20px;
+    background-color: lightgrey;
+}
+.pg-header .avatar:hover .user-menu{
+    display: block;
+    z-index: 100;
+}
+.pg-header .avatar .user-menu a {
+    display: block;
+}
+
+.pg-header .menu-info a{
+    display: inline-block;
+    padding: 0 10px;
+}
+.pg-header .menu-info a.item:hover{
+    background-color: darkgoldenrod;
+
+}
+
+
+.pg-body .menus{
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 200px;
+    background-color: white;
+    border: 1px solid steelblue;
+}
+
+.pg-body .menus .item{
+    height: 48px;
+    background-color: lightgray;
+    margin: 0 0 10px 0;
+    line-height: 48px;
+    text-align: center;
+}
+
+.pg-body .content{
+    position: absolute;
+    top: 48px;
+    left:200px;
+    right: 0;
+    bottom: 0;
+    border: 1px solid steelblue;
+}
+
+
+.pg-body .content #profile_tb{
+    position: absolute;
+    top: 48px;
+    left: 100px;
+}
+
+.pg-body .content .theme{
+    position: absolute;
+    top: 32px;
+    left: 100px;
+}
+
+.pg-body #pf_form{
+    padding: 20px;
+}
+
+.pg-body #pf_form span{
+    color: red;
+}
+
+.pg-body .page_nav{
+    padding-left: 300px;
+}
+
+.pg-body .content #profile_tb tr{
+    height: 40px;
+}
+.pg-body .content #profile_tb td{
+    width: 100px;
+}
+
+.pg-body .content-header{
+    min-height: 32px;
+    background-color: #B8B8B8;
+    line-height: 32px;
+}
+
+.mask_layer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.3;
+    z-index: 10;
+}
+
+.pg-body .model_add{
+        position: fixed;
+        top:10%;
+        left:30%;
+        right:30%;
+        bottom:40%;
+        background-color: lightsteelblue;
+        z-index: 11;
+}
+
+.pg-body .model_edit{
+        position: fixed;
+        top:10%;
+        left:30%;
+        right:30%;
+        bottom:40%;
+        background-color: lightsteelblue;
+        z-index: 11;
+}

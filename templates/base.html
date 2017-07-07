@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+
+    <meta name="keywords" content="HTML CSS JavaScript"/>
+    <meta name="description" content="主机管理系统"/>
+    <meta name="author" content="Jonathan"/>
+
+    <meta http-equiv="x-ua-compatible" content="IE=Edge"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+
+    <script src="/static/js/jquery.js"></script>
+    <link href="/static/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/asset.css"/>
+
+
+    <script src="https://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+    <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>
+    <script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>
+
+    <title>主机管理系统</title>
+
+
+</head>
+<body>
+<div class="pg-header">
+    <div class="logo left">CMDB</div>
+    <div class="avatar right">
+        <a href="#"><img src="{{ user_photo|default:"/static/img/photo/photo01.png" }}"/></a>
+        <div class="user-menu">
+            <a href="/asset/profile/">账号：{{ username }}</a>
+            <a href="/asset/pwd/">修改密码</a>
+            <a href="/asset/logout/">注销</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="pg-body">
+    <div class="menus">
+        <div class="item"><a href="/asset/dashboard/">控制面板</a></div>
+        <div class="item"><a href="/asset/servers_list/">所有主机</a></div>
+        <div class="item"><a href="/asset/events_list/">事件中心</a></div>
+    </div>
+
+{% block content %}
+    <div class="content" id="content_all_hosts">
+        <div class="content-header">
+            &nbsp;&nbsp;
+        </div>
+
+        <div id="container" style="width: 500px;height: 400px;float: left"></div>
+        <div id="container2" style="width: 500px;height: 400px;float: right"></div>
+
+    </div>
+
+    <script>
+    $(function () {
+
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'IT资产类型占比'
+        },
+        tooltip: {
+            headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'IT资产类型占比',
+            data: [
+                ['Firefox', 1],
+                ['IE',0],
+                ['Safari',0],
+                ['Opera',0],
+                ['其他',0]
+            ]
+        }]
+    });
+});
+
+    </script>
+    <script>
+    $(function () {
+    $('#container2').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: '2014 某网站各浏览器浏览量占比'
+        },
+        tooltip: {
+            headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: '浏览器访问量占比',
+            data: [
+                ['Firefox',   45.0],
+                ['IE',       26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari',    8.5],
+                ['Opera',     6.2],
+                ['其他',   0.7]
+            ]
+        }]
+    });
+});
+
+    </script>
+
+
+{% endblock %}
+    </div>
+
+<div class="pg-footer">
+</div>
+
+<div class="mask_layer hide"></div>
+</body>
+</html>
