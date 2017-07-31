@@ -1,93 +1,65 @@
 var navs = [{
-	"title": "基本元素",
+	"title": "流程控制",
 	"icon": "fa-cubes",
 	"spread": true,
 	"children": [{
-		"title": "按钮",
+		"title": "资产审批",
 		"icon": "&#xe641;",
 		"href": "button.html"
 	}, {
-		"title": "表单",
+		"title": "用户授权",
 		"icon": "&#xe63c;",
 		"href": "form.html"
-	}, {
-		"title": "表格",
-		"icon": "&#xe63c;",
-		"href": "table.html"
-	}, {
-		"title": "导航",
-		"icon": "&#xe609;",
-		"href": "nav.html"
-	}, {
-		"title": "辅助性元素",
-		"icon": "&#xe60c;",
-		"href": "auxiliar.html"
 	}]
 }, {
-	"title": "组件",
+	"title": "所有设备",
 	"icon": "fa-cogs",
 	"spread": false,
 	"children": [{
-		"title": "BTable",
+		"title": "服务器",
 		"icon": "fa-table",
 		"href": "btable.html"
 	}, {
-		"title": "Navbar组件",
+		"title": "网络设备",
 		"icon": "fa-navicon",
 		"href": "navbar.html"
 	}, {
-		"title": "Tab组件",
+		"title": "安全设备",
 		"icon": "&#xe62a;",
 		"href": "tab.html"
 	}, {
-		"title": "Laytpl+Laypage",
+		"title": "软件系统",
 		"icon": "&#xe628;",
 		"href": "paging.html"
 	}]
 }, {
-	"title": "第三方组件",
+	"title": "基础信息",
 	"icon": "&#x1002;",
 	"spread": false,
 	"children": [{
-		"title": "iCheck组件",
+		"title": "业务线",
+		"icon": "fa-check-square-o",
+		"href": "icheck.html"
+	},{
+		"title": "所有合同",
+		"icon": "fa-check-square-o",
+		"href": "icheck.html"
+	},{
+		"title": "制造商",
+		"icon": "fa-check-square-o",
+		"href": "icheck.html"
+	},{
+		"title": "机房",
+		"icon": "fa-check-square-o",
+		"href": "icheck.html"
+	},{
+		"title": "机柜",
 		"icon": "fa-check-square-o",
 		"href": "icheck.html"
 	}]
 }, {
-	"title": "地址本",
-	"icon": "fa-address-book",
-	"href": "",
-	"spread": false,
-	"children": [{
-		"title": "Github",
-		"icon": "fa-github",
-		"href": "https://www.github.com/"
-	}, {
-		"title": "QQ",
-		"icon": "fa-qq",
-		"href": "http://www.qq.com/"
-	}, {
-		"title": "Fly社区",
-		"icon": "&#xe609;",
-		"href": "http://fly.layui.com/"
-	}, {
-		"title": "新浪微博",
-		"icon": "fa-weibo",
-		"href": "http://weibo.com/"
-	}]
-}, {
-	"title": "这是一级导航",
+	"title": "事件中心",
 	"icon": "fa-stop-circle",
-	"href": "https://www.baidu.com",
+	"href": "/asset/events_list/",
 	"spread": false
-}, {
-	"title": "其他",
-	"icon": "fa-stop-circle",
-	"href": "#",
-	"spread": false,
-	"children": [{
-		"title": "子窗体中打开选项卡",
-		"icon": "fa-github",
-		"href": "cop.html"
-	}]
 }];

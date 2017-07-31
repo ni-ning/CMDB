@@ -1,0 +1,56 @@
+{% extends "bak/index.html" %}
+
+{% block content %}
+
+    <div class="admin-main">
+
+
+			<fieldset class="layui-elem-field">
+				<legend>数据列表</legend>
+				<div class="layui-field-box layui-form">
+					<table class="layui-table admin-table">
+						<thead>
+							<tr>
+								<th style="width: 30px;"><input type="checkbox" lay-filter="allselector" lay-skin="primary"></th>
+                                <th>序号</th>
+                                <th>事件名称</th>
+                                <th>事件类型</th>
+                                <th>事件备注</th>
+                                <th>添加时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody id="content">
+
+                        {% for obj in obj_list%}
+                            <tr>
+                                <td target="id"></td>
+                                <td target="id">{{ obj.id }}</td>
+                                <td target="hostname">{{ obj.name }}</td>
+                                <td target="port">{{ obj.event_type }}</td>
+                                <td target="business_name">{{ obj.memo }}</td>
+                                <td target="create_date">{{ obj.date}}</td>
+                                <td>
+                                <a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+                                <a href="javascript:;" data-name="{{ item.name }}" data-opt="edit" class="layui-btn layui-btn-mini">编辑</a>
+                                <a href="javascript:;" data-id="1" data-opt="del" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+                            </td>
+
+                            </tr>
+                        {% endfor %}
+
+						</tbody>
+					</table>
+				</div>
+			</fieldset>
+			<div class="admin-table-page">
+
+
+				<div id="paged" class="page">
+
+                </div>
+			</div>
+		</div>
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
+
+</head>
+<body>
+<p><a href="/asset/events_list/">返回</a></p>
+
+
+
+<table class="layui-table" lay-skin="nob">
+  <colgroup>
+    <col width="30">
+    <col width="200">
+    <col>
+  </colgroup>
+  <tbody>
+    <tr>
+    <td>事件名称</td>
+    <td>{{ event_obj.name }}</td>
+    </tr>
+    <tr>
+    <td>事件类型</td>
+    <td>{{ event_obj.get_event_type_display }}</td>
+    </tr>
+    <tr>
+    <td>资产对象</td>
+    <td>{{ event_obj.asset }}</td>
+    </tr>
+    <tr>
+    <td>事件子项</td>
+    <td>{{ event_obj.component }}</td>
+    </tr>
+    <tr>
+    <td>事件详情</td>
+    <td>{{ event_obj.detail }}</td>
+    </tr>
+    <tr>
+    <td>时间</td>
+    <td>{{ event_obj.date|date:'Y-m-d h:m:t' }}</td>
+    </tr>
+    <tr>
+    <td>备注</td>
+    <td>{{ event_obj.memo }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+</body>
+<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form();
+});
+</script>
+</html>

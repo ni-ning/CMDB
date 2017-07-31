@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+<body>
+
+<div id="container" style="width: 500px;height: 400px;float: left"></div>
+<div id="container2" style="width: 500px;height: 400px;float: right"></div>
+
+<!--图表 start -->
+<script src="https://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+<script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>
+<script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>
+
+<script>
+    $(function () {
+
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'IT资产类型占比'
+        },
+        tooltip: {
+            headerFormat: '{series.name}<br>',
+            pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'IT资产类型占比',
+            data: [
+                ['服务器', 20],
+                ['网络设备',1],
+                ['安全设备',1],
+                ['软件系统',5],
+                ['其他',4]
+            ]
+        }]
+    });
+});
+
+</script>
+<script>
+    var chart = null;
+$(function () {
+$('#container2').highcharts({
+chart: {
+plotBackgroundColor: null,
+plotBorderWidth: null,
+plotShadow: false,
+spacing : [100, 0 , 40, 0]
+},
+title: {
+floating:true,
+text: '资产状态分类'
+},
+tooltip: {
+pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+},
+plotOptions: {
+pie: {
+    allowPointSelect: true,
+    cursor: 'pointer',
+    dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        }
+    },
+    point: {
+        events: {
+            mouseOver: function(e) {  // 鼠标滑过时动态更新标题
+                // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+                chart.setTitle({
+                    text: e.target.name+ '\t'+ e.target.y + ' %'
+                });
+            }
+            //,
+            // click: function(e) { // 同样的可以在点击事件里处理
+            //     chart.setTitle({
+            //         text: e.point.name+ '\t'+ e.point.y + ' %'
+            //     });
+            // }
+        }
+    },
+}
+},
+series: [{
+type: 'pie',
+innerSize: '80%',
+name: '市场份额',
+data: [
+    ['在线',       26.8],
+    ['已下线',    8.5],
+    ['未知',     6.2],
+    ['备用',     6.2],
+    ['故障',   0.7]
+]
+}]
+}, function(c) {
+// 环形图圆心
+var centerY = c.series[0].center[1],
+titleHeight = parseInt(c.title.styles.fontSize);
+c.setTitle({
+y:centerY + titleHeight/2
+});
+chart = c;
+});
+});
+
+</script>
+
+</body>
+</html>

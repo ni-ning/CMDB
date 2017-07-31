@@ -1,41 +1,57 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <div class="content" id="content_hosts">
-        <div class="content-header">
-            &nbsp;&nbsp;<a href="/host/host_add01/">添加主机</a>
-        </div>
-        <table class="table table-hover">
-            <thead>
-                <tr class="active">
-                    <th>序号</th>
-                    <th>事件名称</th>
-                    <th>事件类型</th>
-                    <th>事件备注</th>
-                    <th>添加时间</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for obj in obj_list%}
-                <tr>
-                    <td target="id">{{ obj.id }}</td>
-                    <td target="hostname">{{ obj.name }}</td>
-                    <td target="port">{{ obj.event_type }}</td>
-                    <td target="business_name">{{ obj.memo }}</td>
-                    <td target="create_date">{{ obj.date}}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-
-        </table>
-        <div class="page_nav">
-            <nav aria-label="...">
-              <ul class="pagination">
-                  {{ page_info.page_str|safe }}
-              </ul>
-            </nav>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
+{#    <link rel="stylesheet" href="/static/css/global.css" media="all">#}
+{#    <link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.min.css">#}
+{#    <link rel="stylesheet" href="/static/css/table.css" />#}
 
 
-{% endblock %}
+</head>
+<body>
+<table class="layui-table" style="margin: 0">
+  <colgroup>
+    <col width="150">
+    <col width="200">
+    <col>
+  </colgroup>
+    <thead>
+    <tr>
+        <th>选择</th>
+        <th>事件名称</th>
+        <th>事件类型</th>
+        <th>时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        {% for obj in obj_list %}
+        <tr>
+            <td>
+                <input type="checkbox"  class="layui-form-checkbox"  lay-skin="primary">
+            </td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.get_event_type_display }}</td>
+            <td>{{ obj.date|date:'Y-m-d h:m:t'}}</td>
+            <td>
+                        <a href="/asset/events/detail-{{ obj.id }}"  class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+                        <a href="javascript:;" class="layui-btn layui-btn-mini">编辑</a>
+                        <a href="javascript:;" class="layui-btn layui-btn-danger layui-btn-mini">删除</a>
+                    </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</body>
+<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form();
+});
+</script>
+</html>

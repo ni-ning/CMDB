@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>后台管理模板</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+
+		<link rel="stylesheet" href="/static/plugins/layui/css/layui.css" media="all" />
+		<link rel="stylesheet" href="/static/css/global.css" media="all">
+		<link rel="stylesheet" href="/static/plugins/font-awesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="/static/css/table.css" />
+
+
+	</head>
+
+	<body>
+		<div class="layui-layout layui-layout-admin" style="border-bottom: solid 5px #1aa094;">
+			<div class="layui-header header header-demo">
+				<div class="layui-main">
+					<div class="admin-login-box">
+						<a class="logo" style="left: 0;" href="/asset/index/">
+							<span style="font-size: 22px;">定制CMDB</span>
+						</a>
+						<div class="admin-side-toggle">
+							<i class="fa fa-bars" aria-hidden="true"></i>
+						</div>
+						<div class="admin-side-full">
+							<i class="fa fa-life-bouy" aria-hidden="true"></i>
+						</div>
+					</div>
+					<ul class="layui-nav admin-header-item">
+						<li class="layui-nav-item">
+							<a href="javascript:;">清除缓存</a>
+						</li>
+                        <li class="layui-nav-item" id="pay">
+                            <a href="javascript:;">捐赠我</a>
+                        </li>
+						<li class="layui-nav-item">
+							<a href="/asset/index/">浏览网站</a>
+						</li>
+						<li class="layui-nav-item" id="video1">
+							<a href="javascript:;">视频</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;" class="admin-header-user">
+								<img src="/static/images/0.jpg" />
+								<span>Jonathan</span>
+							</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a>
+								</dd>
+								<dd>
+									<a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a>
+								</dd>
+								<dd id="lock">
+									<a href="javascript:;">
+										<i class="fa fa-lock" aria-hidden="true" style="padding-right: 3px;padding-left: 1px;"></i> 锁屏 (Alt+L)
+									</a>
+								</dd>
+								<dd>
+									<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+					<ul class="layui-nav admin-header-item-mobile">
+						<li class="layui-nav-item">
+							<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="layui-side layui-bg-black" id="admin-side">
+				<div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side">
+
+                    <ul class="layui-nav layui-nav-tree beg-navbar">
+                        <li class="layui-nav-item"><a href="/asset/index/" data-url="/asset/index/"><i class="fa fa-stop-circle" aria-hidden="true" data-icon="fa-stop-circle"></i><cite>控制面板</cite></a></li>
+                        <li class="layui-nav-item"><a href="javascript:;"><i class="fa fa-cubes" aria-hidden="true" data-icon="fa-cubes"></i><cite>流程控制</cite><span class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child">
+                                <dd title="资产审批"><a href="javascript:;" data-url="button.html"><i class="layui-icon" data-icon=""></i><cite>资产审批</cite></a></dd>
+                                <dd title="用户授权"><a href="javascript:;" data-url="form.html"><i class="layui-icon" data-icon=""></i><cite>用户授权</cite></a></dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item"><a href="javascript:;"><i class="fa fa-cubes" aria-hidden="true" data-icon="fa-cubes"></i><cite>所有主机</cite><span class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child">
+                                <dd title="服务器"><a href="javascript:;" data-url="button.html"><i class="layui-icon" data-icon=""></i><cite>服务器</cite></a></dd>
+                                <dd title="网络设备"><a href="javascript:;" data-url="form.html"><i class="layui-icon" data-icon=""></i><cite>网络设备</cite></a></dd>
+                                <dd title="安全设备"><a href="javascript:;" data-url="table.html"><i class="layui-icon" data-icon=""></i><cite>安全设备</cite></a></dd>
+                                <dd title="软件系统"><a href="javascript:;" data-url="nav.html"><i class="layui-icon" data-icon=""></i><cite>软件系统</cite></a></dd>
+{#                                <dd title="处理器"><a href="javascript:;" data-url="auxiliar.html"><i class="layui-icon" data-icon=""></i><cite>处理器</cite></a></dd>#}
+{#                                <dd title="内存"><a href="javascript:;" data-url="auxiliar.html"><i class="layui-icon" data-icon=""></i><cite>内存</cite></a></dd>#}
+{#                                <dd title="磁盘"><a href="javascript:;" data-url="auxiliar.html"><i class="layui-icon" data-icon=""></i><cite>磁盘</cite></a></dd>#}
+{#                                <dd title="网卡"><a href="javascript:;" data-url="auxiliar.html"><i class="layui-icon" data-icon=""></i><cite>网卡</cite></a></dd>#}
+{#                                <dd title="Raid卡"><a href="javascript:;" data-url="auxiliar.html"><i class="layui-icon" data-icon=""></i><cite>Raid卡</cite></a></dd>#}
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item"><a href="javascript:;"><i class="fa fa-cubes" aria-hidden="true" data-icon="fa-cubes"></i><cite>基础信息</cite><span class="layui-nav-more"></span></a>
+                            <dl class="layui-nav-child">
+                                <dd title="业务线"><a href="javascript:;" data-url="button.html"><i class="layui-icon" data-icon=""></i><cite>业务线</cite></a></dd>
+                                <dd title="所有合同"><a href="javascript:;" data-url="form.html"><i class="layui-icon" data-icon=""></i><cite>所有合同</cite></a></dd>
+                                <dd title="制造商"><a href="javascript:;" data-url="form.html"><i class="layui-icon" data-icon=""></i><cite>制造商</cite></a></dd>
+                                <dd title="机房"><a href="javascript:;" data-url="form.html"><i class="layui-icon" data-icon=""></i><cite>机房</cite></a></dd>
+                                <dd title="机柜"><a href="javascript:;" data-url="form.html"><i class="layui-icon" data-icon=""></i><cite>机柜</cite></a></dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item"><a href="/asset/events_list/" data-url="https://www.baidu.com"><i class="fa fa-stop-circle" aria-hidden="true" data-icon="fa-stop-circle"></i><cite>事件中心</cite></a></li>
+
+                    </ul>
+
+                </div>
+			</div>
+			<div class="layui-body" style="bottom: 0;border-left: solid 2px #1AA094;" id="admin-body">
+
+                {% block content %}
+
+				<div class="layui-tab admin-nav-card layui-tab-brief" lay-filter="admin-tab">
+					<ul class="layui-tab-title">
+						<li class="layui-this">
+							<i class="fa fa-dashboard" aria-hidden="true"></i>
+							<cite>控制面板</cite>
+						</li>
+					</ul>
+					<div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
+						<div class="layui-tab-item layui-show">
+
+
+                            <div id="container" style="width: 500px;height: 400px;float: left"></div>
+                            <div id="container2" style="width: 500px;height: 400px;float: right"></div>
+
+
+						</div>
+					</div>
+				</div>
+
+                {% endblock content %}
+
+			</div>
+			<div class="layui-footer footer footer-demo" id="admin-footer">
+				<div class="layui-main">
+					<p>2017 &copy;
+						<a href="/asset/index/">welcome</a> LGPL license
+					</p>
+				</div>
+			</div>
+			<div class="site-tree-mobile layui-hide">
+				<i class="layui-icon">&#xe602;</i>
+			</div>
+			<div class="site-mobile-shade"></div>
+			
+			<!--锁屏模板 start-->
+			<script type="text/template" id="lock-temp">
+				<div class="admin-header-lock" id="lock-box">
+					<div class="admin-header-lock-img">
+						<img src="/static/images/0.jpg"/>
+					</div>
+					<div class="admin-header-lock-name" id="lockUserName">beginner</div>
+					<input type="text" class="admin-header-lock-input" value="输入密码解锁.." name="lockPwd" id="lockPwd" />
+					<button class="layui-btn layui-btn-small" id="unlock">解锁</button>
+				</div>
+			</script>
+			<!--锁屏模板 end -->
+			
+			<script type="text/javascript" src="/static/plugins/layui/layui.js"></script>
+			<script type="text/javascript" src="/static/datas/nav.js"></script>
+			<script src="/static/js/index.js"></script>
+			<script>
+				layui.use('layer', function() {
+					var $ = layui.jquery,
+						layer = layui.layer;
+
+					$('#video1').on('click', function() {
+						layer.open({
+							title: 'YouTube',
+							maxmin: true,
+							type: 2,
+							content: 'video.html',
+							area: ['800px', '500px']
+						});
+                    });
+                    $('#pay').on('click', function () {
+                        layer.open({
+                            title: false,
+                            type: 1,
+                            content: '<img src="/static/images/1.jpg" />',
+                            area: ['280px', '277px'],
+                            shadeClose: true
+                        });
+                    });
+
+
+				});
+			</script>
+
+            <!--图表 start -->
+            <script src="https://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+            <script src="https://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+            <script src="https://cdn.hcharts.cn/highstock/highstock.js"></script>
+            <script src="https://cdn.hcharts.cn/highmaps/highmaps.js"></script>
+
+            <script>
+                $(function () {
+
+                $('#container').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'IT资产类型占比'
+                    },
+                    tooltip: {
+                        headerFormat: '{series.name}<br>',
+                        pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
+                            }
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: 'IT资产类型占比',
+                        data: [
+                            ['服务器', 20],
+                            ['网络设备',1],
+                            ['安全设备',1],
+                            ['软件系统',5],
+                            ['其他',4]
+                        ]
+                    }]
+                });
+            });
+
+            </script>
+            <script>
+                var chart = null;
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            spacing : [100, 0 , 40, 0]
+        },
+        title: {
+            floating:true,
+            text: '资产状态分类'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                },
+                point: {
+                    events: {
+                        mouseOver: function(e) {  // 鼠标滑过时动态更新标题
+                            // 标题更新函数，API 地址：https://api.hcharts.cn/highcharts#Chart.setTitle
+                            chart.setTitle({
+                                text: e.target.name+ '\t'+ e.target.y + ' %'
+                            });
+                        }
+                        //,
+                        // click: function(e) { // 同样的可以在点击事件里处理
+                        //     chart.setTitle({
+                        //         text: e.point.name+ '\t'+ e.point.y + ' %'
+                        //     });
+                        // }
+                    }
+                },
+            }
+        },
+        series: [{
+            type: 'pie',
+            innerSize: '80%',
+            name: '市场份额',
+            data: [
+                ['在线',       26.8],
+                ['已下线',    8.5],
+                ['未知',     6.2],
+                ['备用',     6.2],
+                ['故障',   0.7]
+            ]
+        }]
+    }, function(c) {
+        // 环形图圆心
+        var centerY = c.series[0].center[1],
+            titleHeight = parseInt(c.title.styles.fontSize);
+        c.setTitle({
+            y:centerY + titleHeight/2
+        });
+        chart = c;
+    });
+});
+
+            </script>
+            <!--图表 end -->
+
+		</div>
+	</body>
+
+</html>

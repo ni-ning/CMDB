@@ -1,0 +1,41 @@
+{% extends "bak/base.html" %}
+
+{% block content %}
+    <div class="content" id="content_hosts">
+        <div class="content-header">
+            &nbsp;&nbsp;<a href="/host/host_add01/">添加主机</a>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="active">
+                    <th>序号</th>
+                    <th>事件名称</th>
+                    <th>事件类型</th>
+                    <th>事件备注</th>
+                    <th>添加时间</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for obj in obj_list%}
+                <tr>
+                    <td target="id">{{ obj.id }}</td>
+                    <td target="hostname">{{ obj.name }}</td>
+                    <td target="port">{{ obj.event_type }}</td>
+                    <td target="business_name">{{ obj.memo }}</td>
+                    <td target="create_date">{{ obj.date}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+        <div class="page_nav">
+            <nav aria-label="...">
+              <ul class="pagination">
+                  {{ page_info.page_str|safe }}
+              </ul>
+            </nav>
+        </div>
+    </div>
+
+
+{% endblock %}
